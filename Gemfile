@@ -10,6 +10,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'unicorn'
+gem 'bower'
+gem 'rack-cors', :require => 'rack/cors'
+
 
 group :development do
   gem "web-console"
