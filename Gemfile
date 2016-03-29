@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.3' # change the version if needed
-gem 'rails', '4.2.3' # change the version if needed
+gem 'rails', '4.2.5.2' # change the version if needed
 
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
