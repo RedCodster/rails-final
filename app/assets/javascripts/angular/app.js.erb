@@ -13,6 +13,18 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
     when('/signup', {
       templateUrl: "<%= asset_path('auth/signup.html') %>",
       controller: 'SignUpCtrl'
+    }).
+    when('/quizzes', {
+      templateUrl: "<%= asset_path('quizzes/index.html') %>",
+      controller: 'QuizzesIndexCtrl'
+    }).
+    when('/quizzes/:id', {
+      templateUrl: "<%= asset_path('quizzes/show.html') %>",
+      controller: 'QuizzesShowCtrl'
+    }).
+    when('/new_quizzes', {
+      templateUrl: "<%= asset_path('quizzes/new.html') %>",
+      controller: 'QuizzesNewCtrl'
     });
 
   $authProvider.configure({

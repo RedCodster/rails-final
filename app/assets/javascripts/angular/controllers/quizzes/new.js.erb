@@ -1,0 +1,17 @@
+app.controller('QuizzesNewCtrl', ['$scope', '$http', function($scope, $http){
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  $scope.quiz = {};
+  $scope.form = {};
+
+  $scope.form.create = function(){
+    var data = {
+      post: $scope.quiz
+    };
+
+    $http.post(url + '/quizzes', data).success(function(response){
+      console.log(response);
+    });
+  };
+}]);
