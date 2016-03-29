@@ -13,7 +13,6 @@ gem 'unicorn'
 gem 'bower'
 gem 'rack-cors', :require => 'rack/cors'
 
-
 group :development do
   gem "web-console"
   gem "better_errors"
@@ -28,5 +27,9 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "rspec-rails", "~> 3.0"
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
