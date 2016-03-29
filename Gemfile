@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'unicorn'
 gem 'bower'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'devise_token_auth'
+gem 'omniauth'
 
 group :development do
   gem "web-console"
