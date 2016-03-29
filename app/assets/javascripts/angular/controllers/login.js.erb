@@ -1,4 +1,4 @@
-app.controller('SignInCtrl', ['$scope', function($scope){
+app.controller('SignInCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
   $scope.login = function () {
     $auth.submitLogin($scope.loginForm).
      then(function(resp) {

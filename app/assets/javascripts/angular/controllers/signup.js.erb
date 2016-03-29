@@ -1,4 +1,4 @@
-app.controller('SignUpCtrl', ['$scope', function($scope){
+app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
   $scope.signup = function () {
     $auth.submitRegistration($scope.registrationForm).
      then(function(resp) {
