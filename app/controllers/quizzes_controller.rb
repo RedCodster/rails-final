@@ -1,11 +1,12 @@
 class QuizzesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @quizzes = Quiz.all
   end
 
   def create
-    @quiz = Quiz.new(post_params)
+    @quiz = current_user.quizzes.new(post_params)
 
     if @quiz.save
       # render success in Jbuilder
