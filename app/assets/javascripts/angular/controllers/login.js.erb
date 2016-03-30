@@ -2,14 +2,11 @@ app.controller('SignInCtrl', ['$scope', '$auth', '$location', function($scope, $
   $scope.login = function (configName) {
     $auth.submitLogin($scope.loginForm, {config: configName}).
      then(function(resp) {
-       // handle success response
        console.log(resp);
 
-       // redirect back to root when registration succesfull
        $location.path('/');
      }).
      catch(function(resp) {
-       // handle error response
        console.log(resp);
      });
   };

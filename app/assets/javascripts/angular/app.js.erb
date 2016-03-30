@@ -41,24 +41,30 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
 
   $authProvider.configure([
     {
-      apiUrl: 'http://localhost:3000'
-    },{
       user: {
-        apiUrl:                  'http://localhost:3000',
+        apiUrl:                  location.origin,
+        tokenValidationPath:     '/auth/user/validate_token',
         signOutUrl:              '/auth/user/sign_out',
-        emailSignInPath:         '/auth/user/sign_in',
         emailRegistrationPath:   '/auth/user',
-        confirmationSuccessUrl:  '/',
-        tokenValidationPath:     '/auth/user/validate_token'
+        accountUpdatePath:       '/auth/user',
+        accountDeletePath:       '/auth/user',
+        passwordResetPath:       '/auth/user/password',
+        passwordUpdatePath:      '/auth/user/password',
+        emailSignInPath:         '/auth/user/sign_in',
+        storage:                 'localStorage'
       }
     },{
       admin: {
-        apiUrl:                  'http://localhost:3000',
+        apiUrl:                  location.origin,
+        tokenValidationPath:     '/auth/admin/validate_token',
         signOutUrl:              '/auth/admin/sign_out',
-        emailSignInPath:         '/auth/admin/sign_in',
         emailRegistrationPath:   '/auth/admin',
-        confirmationSuccessUrl:  '/',
-        tokenValidationPath:     '/auth/admin/validate_token'
+        accountUpdatePath:       '/auth/admin',
+        accountDeletePath:       '/auth/admin',
+        passwordResetPath:       '/auth/admin/password',
+        passwordUpdatePath:      '/auth/admin/password',
+        emailSignInPath:         '/auth/admin/sign_in',
+        storage:                 'localStorage'
       }
     }
   ]);
