@@ -39,9 +39,8 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
       controller: 'QuizzesNewCtrl'
     });
 
-  $authProvider.configure([{
-      // By default, you only need to configure apiUrl
-      // Note that if you put a '/' at the end of the link, there will be errors when calling the api
+  $authProvider.configure([
+    {
       apiUrl: 'http://localhost:3000'
     },{
       user: {
@@ -49,7 +48,8 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
         signOutUrl:              '/auth/user/sign_out',
         emailSignInPath:         '/auth/user/sign_in',
         emailRegistrationPath:   '/auth/user',
-        confirmationSuccessUrl:  '/'
+        confirmationSuccessUrl:  '/',
+        tokenValidationPath:     '/auth/user/validate_token'
       }
     },{
       admin: {
@@ -57,7 +57,9 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
         signOutUrl:              '/auth/admin/sign_out',
         emailSignInPath:         '/auth/admin/sign_in',
         emailRegistrationPath:   '/auth/admin',
-        confirmationSuccessUrl:  '/'
+        confirmationSuccessUrl:  '/',
+        tokenValidationPath:     '/auth/admin/validate_token'
       }
-    }]);
+    }
+  ]);
 }]);

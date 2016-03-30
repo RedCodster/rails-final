@@ -7,9 +7,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <the-header><the-header>
+    <the-header></the-header>
 
-    <div ng-view></div>
-
+    <div ng-view>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,7 @@
+app.directive('theHeader', ['$http', function($http){
+  return {
+    restrict: 'E',
+    templateUrl: "<%= asset_path('partials/header.html') %>",
+    controller: "HeaderCtrl"
+  };
+}]);
