@@ -4,6 +4,6 @@ app.controller('QuizzesIndexCtrl', ['$scope', '$http', '$location', function($sc
 
   $http.get(url + '/quizzes').success(function(response){
     console.log(response);
-    $scope.posts = response;
+    $scope.quizzes = response;
   });
 }]);

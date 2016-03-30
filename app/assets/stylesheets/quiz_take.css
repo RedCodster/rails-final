@@ -1,0 +1,118 @@
+
+#category {
+  height: 100px;
+  background-color: magenta;
+  border: 2px solid blue;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ans-choices {
+  background-color: aliceblue;
+  height: 550px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px 0px 0px 25px;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+.graphic {
+  background-color: lavender;
+  height: 550px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px 25px 0px 25px;
+
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+  width: 500px;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+}
+
+#start-button {
+  font-style: bold;
+  border-radius: 5px;
+  margin: 50px 0px 50px 0px;
+  font-weight: bold;
+  height: 60px;
+  width: 100%;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  background-color: limegreen;
+}
+
+#answer-button {
+  font-style: bold;
+  border-radius: 5px;
+  margin: 10px 0px 10px 0px;
+  font-weight: bold;
+  height: 60px;
+  width: 100%;
+  color: white;
+  font-size: 40px;
+  background-color: blue;
+}
+
+#gameover {
+  height: 100px;
+  background-color: red;
+  border: 2px solid blue;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+
+}
+
+.score-summary {
+  background-color: lavender;
+  height: 550px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px 0px 0px 25px;
+  font-weight: bold;
+  font-size: 18px;
+
+}
+
+.player-status {
+  background-color: aliceblue;
+  height: 550px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px 0px 0px 25px;
+  font-weight: bold;
+  font-size: 18px;
+
+}
+
+#restart-button {
+  background-color: lightgreen;
+  font-style: bold;
+  border-radius: 5px;
+  margin: 10px 0px 10px 0px;
+  font-weight: bold;
+  height: 60px;
+  width: 100%;
+  color: white;
+  font-size: 40px;
+}
+
+#newquiz-button {
+  background-color: mauve;
+  font-style: bold;
+  border-radius: 5px;
+  margin: 10px 0px 10px 0px;
+  font-weight: bold;
+  height: 60px;
+  width: 100%;
+  color: white;
+  font-size: 40px;
+}
+

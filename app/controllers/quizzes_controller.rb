@@ -16,7 +16,7 @@ class QuizzesController < ApplicationController
   end
 
   def update
-    @post = Quiz.find_by_id(params[:id])
+    @quiz = Quiz.find_by_id(params[:id])
 
     if @quiz.nil?
       render json: { message: "Cannot find quiz" }, status: :not_found
@@ -26,11 +26,13 @@ class QuizzesController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.find_by_id(params[:id])
+
+    @quiz = Quiz.includes(:questions).find_by_id(params[:id])
 
     if @quiz.nil?
       render json: { message: "Cannot find quiz" }, status: :not_found
     end
+
   end
 
   def destroy

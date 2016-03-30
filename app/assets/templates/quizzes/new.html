@@ -2,16 +2,45 @@
   <div class="row">
     <h1>Create A New Quiz</h1>
 
-    <form ng-submit="form.create()">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" placeholder="Enter title" ng-model="quiz.name">
+    <div role="tabpanel" class="tab-pane fade" id="make">
+    <div class="container quiz-details">
+      <div class="question col-xs-6">
+        <label>Quiz Name</label>
+        <input type="text" class="quiz-name" placeholder="Insert quiz name here">
       </div>
-      <div class="form-group">
-        <label>Description</label>
-        <input type="text" class="form-control" placeholder="Enter content" ng-model="quiz.description">
+      <div class="question col-xs-6">
+        <label>Quiz Topic</label>
+        <input type="text" class="quiz-topic" placeholder="Insert quiz topic here">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <div class='col-md-4'>
+        <button id="create-quiz" type="button" class="btn btn-success">Create New Quiz</button>
+      </div>
+    </div>
+    <form id="question-form" class="container">
+      <div class='col-md-12'>
+        <h3> Please start entering your questions here:</h3>
+        <label>Question</label>
+        <input type="text" class="question" placeholder="Insert question here - don't forget the '?'">
+      </div>
+      <div class='col-md-6'>
+        <label>Answer</label>
+        <input type="text" class="answer" placeholder="Insert answer here">
+      </div>
+      <div class='col-md-6'>
+        <label>Dummy1</label>
+        <input type="text" class="dummy1" placeholder="Insert 1st dummy answer here">
+      </div>
+      <div class='col-md-6'>
+        <label>Dummy2</label>
+        <input type="text" class="dummy2" placeholder="Insert 2nd dummy answer here">
+      </div>
+      <div class='col-md-6'>
+        <label>url</label>
+        <input type="text" class="url" placeholder="Insert link to relevant media (Optional)">
+      </div>
+      <div class='col-md-4'>
+        <button id="question-create" class="btn btn-warning">Create New Question</button>
+      </div>
     </form>
   </div>
 </div>

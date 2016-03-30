@@ -1,12 +1,12 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div ng-repeat="quiz in quizzes track by $index">
       <div class="page-header">
-        {{ quiz.name }}
-        {{ quiz.description }}
-        <small>
-          {{ quiz.created_at | date }}
-        </small>
+        <h3>{{ quiz.name }}: {{ quiz.description }}</h3>
+        <a href="/#/quizzes/{{quiz.id}}" class="edit btn btn-sml btn-success">Play</a>
+        <a href="/#/quizzes/{{quiz.id}}" class="edit btn btn-sml btn-warning">Edit</a>
+        <button class="delete btn-sml btn-danger" data-id="<%= quiz._id%>">Delete</button>
+        <h5>Created on: {{ quiz.created_at | date }}</h5>
       </div>
     </div>
   </div>

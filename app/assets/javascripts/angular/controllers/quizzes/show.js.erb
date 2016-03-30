@@ -3,6 +3,7 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
   $http.get(url + '/quizzes/' + $routeParams.id).success(function(response){
-    $scope.post = response;
+    console.log(response);
+    $scope.quiz = response.data;
   });
 }]);
