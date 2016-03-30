@@ -10,9 +10,21 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
       templateUrl: "<%= asset_path('static_pages/index.html') %>",
       controller: 'StaticPagesCtrl'
     }).
-    when('/signup', {
+    when('/user/signup', {
       templateUrl: "<%= asset_path('auth/signup.html') %>",
       controller: 'SignUpCtrl'
+    }).
+    when('/admin/signup', {
+      templateUrl: "<%= asset_path('auth/admin_signup.html') %>",
+      controller: 'SignUpCtrl'
+    }).
+    when('/user/signin', {
+      templateUrl: "<%= asset_path('auth/login.html') %>",
+      controller: 'SignInCtrl'
+    }).
+    when('/admin/signin', {
+      templateUrl: "<%= asset_path('auth/admin_login.html') %>",
+      controller: 'SignInCtrl'
     }).
     when('/quizzes', {
       templateUrl: "<%= asset_path('quizzes/index.html') %>",
@@ -34,17 +46,17 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
     },{
       user: {
         apiUrl:                  'http://localhost:3000',
-        signOutUrl:              '/auth_user/sign_out',
-        emailSignInPath:         '/auth_user/sign_in',
-        emailRegistrationPath:   '/auth_user',
+        signOutUrl:              '/auth/user/sign_out',
+        emailSignInPath:         '/auth/user/sign_in',
+        emailRegistrationPath:   '/auth/user',
         confirmationSuccessUrl:  '/'
       }
     },{
       admin: {
         apiUrl:                  'http://localhost:3000',
-        signOutUrl:              '/auth_admin/sign_out',
-        emailSignInPath:         '/auth_admin/sign_in',
-        emailRegistrationPath:   '/auth_admin',
+        signOutUrl:              '/auth/admin/sign_out',
+        emailSignInPath:         '/auth/admin/sign_in',
+        emailRegistrationPath:   '/auth/admin',
         confirmationSuccessUrl:  '/'
       }
     }]);

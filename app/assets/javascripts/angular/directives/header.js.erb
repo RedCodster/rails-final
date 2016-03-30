@@ -1,0 +1,10 @@
+app.directive('theHeader', function () {
+  return {
+    restrict: 'E', //This means it will be used as an element and NOT as an attribute.
+    replace: true,
+    templateUrl: "<%= asset_path('partials/header.html') %>",
+    // controller: ['$scope', '$filter', function ($scope, $filter) {
+    //     // Your behaviour goes here :)
+    // }]
+  };
+});
