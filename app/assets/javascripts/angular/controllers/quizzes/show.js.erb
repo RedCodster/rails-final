@@ -1,9 +1,70 @@
 app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+  var choices = [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,1,0],[2,0,1]];
 
   $http.get(url + '/quizzes/' + $routeParams.id).success(function(response){
     console.log(response);
-    $scope.quiz = response.data;
+    $scope.quiz = response;
+    $scope.score = 0;
+    $scope.attempted = 0;
+    $scope.currentQId = 0;
+    $scope.startMode = true;
+    $scope.playMode = false;
+    $scope.gameOver = false;
+    $scope.numQuestions = $scope.quiz.questions.length;
+    $scope.currentQ =
+      $scope.quiz.questions[$scope.currentQId];
+
+    $scope.choices = [];
+    randomizeAnswers();
   });
+
+  var randomizeAnswers = function() {
+    var seq = choices[Math.floor(Math.random()*6)];
+    $scope.choices[seq[0]] = $scope.currentQ.answer;
+    $scope.choices[seq[1]] = $scope.currentQ.dummy1;
+    $scope.choices[seq[2]] = $scope.currentQ.dummy2;
+  }
+
+  $scope.startQuiz = function() {
+    $scope.startMode = false;
+    $scope.playMode = true;
+  };
+
+  $scope.chkAnswer = function(choice) {
+    var answer = $scope.currentQ.answer;
+    $scope.attempted ++;
+    if (choice == answer) {
+      $scope.score ++;
+    }
+    $scope.currentQId ++;
+    if ($scope.currentQId < $scope.numQuestions) {
+      newQuestion ();
+    } else {
+      gameOver();
+    }
+  };
+
+  function newQuestion () {
+    $scope.currentQ =
+      $scope.quiz.questions[$scope.currentQId];
+    randomizeAnswers();
+  }
+
+  $scope.skipQuestion = function (choice) {
+    $scope.currentQId ++;
+    if ($scope.currentQId < $scope.numQuestions) {
+      newQuestion ();
+    } else {
+      gameOver();
+    }
+  };
+
+  function gameOver () {
+    $scope.playMode = false;
+    $scope.gameOver = true;
+  }
+
+
 }]);

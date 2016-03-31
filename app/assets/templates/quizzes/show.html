@@ -1,37 +1,36 @@
-<!-- <div class="container">
-  <div class="row">
-    <h3>Play Quiz</h3>
-    <h4>Name: {{ quiz.name }}</h4>
-    <h4>Description: {{ quiz.description }}</h4>
-  </div>
-</div> -->
 
-<div class='container row col-md-12 col-sm-6'>
-  <div class="container">
+<div ng-app='rails-final' class='container row col-md-12 col-sm-6'>
+  <div class="container" ng-show="startMode">
     <h1>Quiz Taker</h1>
-    <input id="start-button" type="submit" value="Start Game" class="col-md-12">
+    <h2>About {{quiz.name}}: {{quiz.description}}</h2>
+    <h3>Number of questions: {{numQuestions}}</h3>
+    <h3>Alloted Time: {{numQuestions * 5}} seconds</h3>
+
+
+    <input id="start-button" type="submit" ng-click="startQuiz()" class="col-md-12">
   </div>
-  <div id="game" class="container">
+
+  <div id="game" ng-show="playMode" class="container">
     <div id="category" class="row">
-      <h1 class="col-md-12">Quiz</h1>
+      <h1 class="col-md-12">{{quiz.name}}</h1>
     </div>
     <div class="row">
       <section class="ans-choices col-md-6">
-        <h3>Question</h3>
-        <p id="question"></p>
-        <h3>Choose Answer</h3>
+        <h3>Question {{currentQuestionIdx + 1}}</h3>
+        <p>{{currentQ.ask}}</p>
+        <h3>Please Choose Answer</h3>
           <div class="list-group col-md-10">
-            <button type="button" id="pick1" class="list-group-item answers" name="choice1"></button>
-            <button type="button" id="pick2" class="list-group-item answers" name="choice2"></button>
-            <button type="button" id="pick3" class="list-group-item answers" name="choice3"></button>
-            <button type="button" id="skip" class="list-group-item" name="skip">Skip to Next Question</button>
+            <button type="button" id="pick1" class="list-group-item answers" ng-click="chkAnswer(choices[0])">{{choices[0]}}</button>
+            <button type="button" id="pick2" class="list-group-item answers" ng-click="chkAnswer(choices[1])">{{choices[1]}}</button>
+            <button type="button" id="pick3" class="list-group-item answers" ng-click="chkAnswer(choices[2])">{{choices[2]}}</button>
+            <button type="button" id="skip" class="list-group-item" ng-click="skipQuestion()">Skip to Next Question</button>
           </div>
         <div class="row">
           <div class= "timer col-md-5">
             <label>Timer<span id="timeLeft"></span></label>
           </div>
           <div class="score col-md-5 col-md-offset-2">
-            <label>Correct Answers<span id="scoreTot"></span></label>
+            <label>Correct Answers<span id="scoreTot"> {{score}}</span></label>
           </div>
       </section>
       <section class="graphic col-md-5 col-md-offset-1">
@@ -39,11 +38,11 @@
         <img id="qpic" src="/public/photos/" class="img-responsive">
       </section>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <input id="answer-button" type="submit" value="Submit Answer" class="col-md-12" disabled>
-    </div>
+    </div> -->
   </div>
-  <div id="tally" class="container">
+  <div id="tally" ng-show="gameOver" class="container">
     <div id="gameover" class="row">
       <h1 class="col-md-12">Game Over</h1>
     </div>
