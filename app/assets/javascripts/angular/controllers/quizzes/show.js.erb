@@ -7,7 +7,7 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
     console.log(response);
     $scope.quiz = response;
     $scope.score = 0;
-    $scope.attempted = 0;
+    $scope.tried = 0;
     $scope.currentQId = 0;
     $scope.startMode = true;
     $scope.playMode = false;
@@ -34,7 +34,7 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
 
   $scope.chkAnswer = function(choice) {
     var answer = $scope.currentQ.answer;
-    $scope.attempted ++;
+    $scope.tried ++;
     if (choice == answer) {
       $scope.score ++;
     }
@@ -64,6 +64,10 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
   function gameOver () {
     $scope.playMode = false;
     $scope.gameOver = true;
+  }
+
+  function gameReset () {
+
   }
 
 
