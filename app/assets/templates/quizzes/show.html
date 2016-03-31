@@ -27,7 +27,7 @@
           </div>
         <div class="row">
           <div class= "timer col-md-5">
-            <label>Timer<span id="timeLeft"></span></label>
+            <label>Timer<span id="timeLeft">{{timer.time}}</span></label>
           </div>
           <div class="score col-md-5 col-md-offset-2">
             <label>Correct Answers<span id="scoreTot"> {{score}}</span></label>
@@ -66,9 +66,9 @@
       </section>
     </div>
     <div class="row">
-      <a href="/#/quizzes/{{quiz.id}}">
-        <input id="restart-button" type="submit" value="Try Quiz Again" class="col-md-12">
-      </a>
+      <button ng-click="gameReset()" id="restart-button" class="col-md-12">
+        Try Quiz Again
+      </button>
     </div>
     <div class="row">
       <a href="/#/quizzes">

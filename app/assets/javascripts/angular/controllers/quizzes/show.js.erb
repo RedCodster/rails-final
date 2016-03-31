@@ -1,4 +1,4 @@
-app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
+app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams', '$interval',  function($scope, $http, $location, $routeParams, $interval){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
   var choices = [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,1,0],[2,0,1]];
@@ -6,19 +6,27 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
   $http.get(url + '/quizzes/' + $routeParams.id).success(function(response){
     console.log(response);
     $scope.quiz = response;
-    $scope.score = 0;
-    $scope.tried = 0;
-    $scope.currentQId = 0;
     $scope.startMode = true;
     $scope.playMode = false;
     $scope.gameOver = false;
     $scope.numQuestions = $scope.quiz.questions.length;
-    $scope.currentQ =
-      $scope.quiz.questions[$scope.currentQId];
-
-    $scope.choices = [];
-    randomizeAnswers();
+    $scope.timer = {
+      time: $scope.numQuestions * 5, // alots 5 seconds per question
+      stop: true                // timer is intially stopped
+    };
   });
+  var timerId;
+  var countDownOneSecond =  function () {
+    $scope.timer.time--;
+    if ($scope.timer.time == 0) {
+      gameOver();
+    }
+  };
+
+  $scope.startCount = function () {
+    timerId = $interval(countDownOneSecond, 1000);
+    $scope.timer.stop = false;
+  };
 
   var randomizeAnswers = function() {
     var seq = choices[Math.floor(Math.random()*6)];
@@ -30,6 +38,15 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
   $scope.startQuiz = function() {
     $scope.startMode = false;
     $scope.playMode = true;
+    $scope.gameOver = false;
+    $scope.currentQId = 0;
+    $scope.score = 0;
+    $scope.tried = 0;
+    $scope.currentQ = $scope.quiz.questions[$scope.currentQId];
+    $scope.choices = [];
+    randomizeAnswers();
+    $scope.startCount();
+
   };
 
   $scope.chkAnswer = function(choice) {
@@ -66,9 +83,11 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
     $scope.gameOver = true;
   }
 
-  function gameReset () {
-
-  }
+  $scope.gameReset = function () {
+    $scope.startMode = true;
+    $scope.playMode = false;
+    $scope.gameOver = false;
+  };
 
 
 }]);
