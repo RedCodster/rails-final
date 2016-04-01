@@ -1,8 +1,5 @@
 app.controller('QuizzesIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
-
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
-
-  $http.get(url + '/quizzes').success(function(response){
+  $http.get('/quizzes').success(function(response){
     console.log(response);
     $scope.quizzes = response;
   });

@@ -1,7 +1,5 @@
 app.controller('QuizzesNewCtrl', ['$scope', '$http', function($scope, $http){
 
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
-
   $scope.quiz = {};
   $scope.form = {};
 
@@ -10,7 +8,7 @@ app.controller('QuizzesNewCtrl', ['$scope', '$http', function($scope, $http){
       post: $scope.quiz
     };
 
-    $http.post(url + '/quizzes', data).success(function(response){
+    $http.post('/quizzes', data).success(function(response){
       console.log(response);
     });
   };

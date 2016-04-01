@@ -1,9 +1,8 @@
 app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams', '$interval',  function($scope, $http, $location, $routeParams, $interval){
 
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
   var choices = [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,1,0],[2,0,1]];
 
-  $http.get(url + '/quizzes/' + $routeParams.id).success(function(response){
+  $http.get('/quizzes/' + $routeParams.id).success(function(response){
     console.log(response);
     $scope.quiz = response;
     $scope.startMode = true;
