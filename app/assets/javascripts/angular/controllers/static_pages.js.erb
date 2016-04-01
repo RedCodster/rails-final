@@ -1,7 +1,7 @@
 // Note: you have to duplicate $scope in 2 places to make it work
 app.controller('StaticPagesCtrl', ['$scope', '$auth', function($scope, $auth){
   $scope.logout = function () {
-    $auth.signOut({config: 'user'}).then(function(resp) {
+    $auth.signOut().then(function(resp) {
       console.log(resp);
     }).catch(function(resp) {
       console.log(resp);
@@ -9,7 +9,7 @@ app.controller('StaticPagesCtrl', ['$scope', '$auth', function($scope, $auth){
   };
 
   $scope.validateUser = function () {
-    $auth.validateUser({config: 'user'}).then(function (resp) {
+    $auth.validateUser().then(function (resp) {
       console.log(resp);
     }).catch(function (resp) {
       console.log(resp);

@@ -10,20 +10,12 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
       templateUrl: "<%= asset_path('static_pages/index.html') %>",
       controller: 'StaticPagesCtrl'
     }).
-    when('/user/signup', {
+    when('/signup', {
       templateUrl: "<%= asset_path('auth/signup.html') %>",
       controller: 'SignUpCtrl'
     }).
-    when('/admin/signup', {
-      templateUrl: "<%= asset_path('auth/admin_signup.html') %>",
-      controller: 'SignUpCtrl'
-    }).
-    when('/user/signin', {
+    when('/signin', {
       templateUrl: "<%= asset_path('auth/login.html') %>",
-      controller: 'SignInCtrl'
-    }).
-    when('/admin/signin', {
-      templateUrl: "<%= asset_path('auth/admin_login.html') %>",
       controller: 'SignInCtrl'
     }).
     when('/quizzes', {

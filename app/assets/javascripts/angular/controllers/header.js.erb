@@ -1,3 +1,20 @@
-app.controller('HeaderCtrl', ['$scope', function($scope){
+app.controller('HeaderCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
+  // validate user on load
+  $auth.validateUser().then(function (resp) {
+    console.log(resp);
+    $scope.user = resp;
+  }).catch(function (resp) {
+    console.log(resp);
+  });
+
+  // log user out
+  $scope.logout = function () {
+    $auth.signOut().then(function(resp) {
+      console.log(resp);
+      $location.path('/')
+    }).catch(function(resp) {
+      console.log(resp);
+    });
+  };
 
 }]);

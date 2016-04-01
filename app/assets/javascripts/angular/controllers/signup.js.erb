@@ -1,5 +1,9 @@
 app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
-  $scope.signup = function (configName) {
+  $scope.userMode = true;
+
+  $scope.signup = function () {
+    var configName = $scope.userMode ? 'user' : 'admin' ;
+
     $auth.submitRegistration($scope.registrationForm, { config: configName}).
      then(function(resp) {
        console.log(resp);
@@ -9,6 +13,14 @@ app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $
      catch(function(resp) {
        console.log(resp);
      });
+  };
+
+  $scope.toggleMode = function (configName) {
+    if (configName == 'admin') {
+      $scope.userMode = false;
+    } else {
+      $scope.userMode = true;
+    }
   };
 
 }])

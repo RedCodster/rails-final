@@ -1,19 +1,26 @@
 <div class="container">
   <div class="row">
-    <h1>Sign In</h1>
-      <form ng-submit="login('user')" role="form" ng-init="loginForm = {}">
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" placeholder="Enter Email"/>
-        </div>
+    <div>
+      <a ng-show="userMode" ng-click="toggleMode('admin')">Click Here for Admin</a>
+      <h1 ng-show="userMode">User Sign In</h1>
 
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control" placeholder="Enter Password"/>
-        </div>
+      <a ng-hide="userMode" ng-click="toggleMode('user')">Click Here for User</a>
+      <h1 ng-hide="userMode">Admin Sign In</h1>
+    </div>
 
-        <button type="submit" class="btn btn-primary btn-lg">Login</button>
-        <a href="/#/"><button class="btn btn-danger btn-lg">Back</button></a>
-      </form>
+    <form ng-submit="login()" role="form" ng-init="loginForm = {}">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" placeholder="Enter Email"/>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control" placeholder="Enter Password"/>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg">Login</button>
+      <a href="/#/"><button class="btn btn-danger btn-lg">Back</button></a>
+    </form>
   </div>
 </div>
