@@ -1,4 +1,4 @@
-app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
+app.controller('SignUpCtrl', ['$scope', '$auth', '$location', '$rootScope', function($scope, $auth, $location, $rootScope){
   $scope.userMode = true;
 
   $scope.signup = function () {
@@ -8,6 +8,8 @@ app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $
      then(function(resp) {
        console.log(resp);
 
+       $rootScope.$emit('auth:registration-email-success', 'Successfully Signed Up');
+       localStorage.setItem('currentConfigName', '"' + configName + '"');
        $location.path('/');
      }).
      catch(function(resp) {

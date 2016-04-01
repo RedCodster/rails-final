@@ -1,11 +1,20 @@
-app.controller('HeaderCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
-  // validate user on load
-  $auth.validateUser().then(function (resp) {
-    console.log(resp);
-    $scope.user = resp;
-  }).catch(function (resp) {
-    console.log(resp);
+app.controller('HeaderCtrl', ['$scope', '$auth', '$location', '$rootScope', function($scope, $auth, $location, $rootScope){
+
+  $rootScope.$on('auth:registration-email-success', function(ev, message) {
+    $scope.validateUser();
   });
+
+  $scope.validateUser = function () {
+    $auth.validateUser().then(function (resp) {
+      console.log(resp);
+      $scope.user = resp;
+    }).catch(function (resp) {
+      console.log(resp);
+    });
+  }
+
+  // validate user on load
+  $scope.validateUser()
 
   // log user out
   $scope.logout = function () {
