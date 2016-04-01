@@ -1,0 +1,21 @@
+app.controller('QuizzesEditCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+
+  $http.get('/quizzes/' + $routeParams.id).success(function(response){
+    console.log(response);
+    $scope.quiz = response;
+
+  });
+
+
+
+
+
+  $scope.update= function(){
+    var data = $scope.quiz;
+    console.log(data);
+
+    //$http.put('/quizzes/' + $routeParams.id, data).success(function(response){
+    //  console.log(response);
+    //});
+  };
+}]);

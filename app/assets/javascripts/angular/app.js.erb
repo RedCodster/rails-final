@@ -23,8 +23,12 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
       controller: 'QuizzesIndexCtrl'
     }).
     when('/quizzes/:id', {
-      templateUrl: "<%= asset_path('quizzes/show.html') %>",
-      controller: 'QuizzesShowCtrl'
+      templateUrl: "<%= asset_path('quizzes/play.html') %>",
+      controller: 'QuizzesPlayCtrl'
+    }).
+    when('/quizzes/:id/edit', {
+      templateUrl: "<%= asset_path('quizzes/edit.html') %>",
+      controller: 'QuizzesEditCtrl'
     }).
     when('/new_quizzes', {
       templateUrl: "<%= asset_path('quizzes/new.html') %>",
