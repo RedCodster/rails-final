@@ -10,22 +10,18 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
     $scope.playMode = false;
     $scope.gameOver = false;
     $scope.numQuestions = $scope.quiz.questions.length;
-    $scope.timer = {
-      time: $scope.numQuestions * 5, // alots 5 seconds per question
-      stop: true                // timer is intially stopped
-    };
+    $scope.timer = $scope.numQuestions * 5;
   });
+
   var timerId;
   var countDownOneSecond =  function () {
-    $scope.timer.time--;
-    if ($scope.timer.time == 0) {
+    $scope.timer--;
+    if ($scope.timer == 0)
       gameOver();
-    }
   };
 
   $scope.startCount = function () {
     timerId = $interval(countDownOneSecond, 1000);
-    $scope.timer.stop = false;
   };
 
   var randomizeAnswers = function() {
@@ -81,6 +77,7 @@ app.controller('QuizzesShowCtrl', ['$scope', '$http', '$location', '$routeParams
   function gameOver () {
     $scope.playMode = false;
     $scope.gameOver = true;
+    $interval.cancel(timerId);
   }
 
   $scope.gameReset = function () {
