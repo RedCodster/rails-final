@@ -6,16 +6,24 @@ app.controller('QuizzesEditCtrl', ['$scope', '$http', '$routeParams', function($
 
   });
 
-
-
-
-
   $scope.update= function(){
-    var data = $scope.quiz;
+    // I added ng-model in edit.html to bind the description field.
+
+    // Need to rename the 'questions' attribute to 'questions_attributes' to follow Rails convention
+    var data = {
+      name: $scope.quiz.name,
+      description: $scope.quiz.description,
+      questions_attributes: $scope.quiz.questions
+    };
+
     console.log(data);
 
-    //$http.put('/quizzes/' + $routeParams.id, data).success(function(response){
-    //  console.log(response);
-    //});
+    $http.put('/quizzes/' + $routeParams.id, data).success(function(response){
+      // Saved. But I am not doing anything interesting currently.
+      console.log(response);
+      
+      // Alternatively, You can choose to redirect to another page if you like.
+      //location = '/#/quizzes';
+    });
   };
 }]);
