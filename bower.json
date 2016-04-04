@@ -5,9 +5,10 @@
     "angular": "^1.5.2",
     "angular-route": "^1.5.2",
     "ng-token-auth": "^0.0.28",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "angular-audio": "^1.7.1"
   },
   "resolutions": {
-    "angular": "1.5.3"
+    "angular": "^1.5.2"
   }
 }
