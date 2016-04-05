@@ -1,24 +1,23 @@
 <div class="container">
-  <div ng-repeat="quiz in quizzes track by $index">
-    <table class="table table-default">
-      <thead>
-        <tr>
-          <th>Quiz Name</th>
-          <th>Score</th>
-          <th># of Questions</th>
-          <th>% Correct</th>
-          <th>Date Played</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{quiz.name}}</td>
-          <td>{{quiz.score}}</td>
-          <td>{{quiz.questions.count()}}/td>
-          <td>{{quiz.score/quiz.questions.length|number:1}}</td>
-          <td>{{}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h3>History of Your Quizzes Played</h3>
+  <table class="table table-default">
+    <thead>
+      <tr>
+        <th>Quiz Name</th>
+        <th>Score</th>
+        <th># of Questions</th>
+        <th>% Correct</th>
+        <th>Date Last Played</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="result in results track by $index">
+      <tr>
+        <td>{{result.name}}</td>
+        <td>{{result.score}}</td>
+        <td>{{result.length}}</td>
+        <td>{{result.score/result.length*100|number:1}}</td>
+        <td>{{result.created_at | date}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

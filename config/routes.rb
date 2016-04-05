@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     resources :results, only: [:create]
   end
 
+  resources :users, only: [] do
+    resources :results, only: [:index]
+  end
+
 end

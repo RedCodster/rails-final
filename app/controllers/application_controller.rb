@@ -3,10 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :get_current_user
 
   def authenticate_user!
-    render json: {message: "Unauthorize"} if current_user.nil?
+    render json: {message: "Unauthorize"} if get_current_user.nil?
   end
 
   def get_current_user
+    puts ">> [get_current_user] [#{cookies[:authHeaders]}]"
     return nil unless cookies[:authHeaders]
     auth_headers = JSON.parse cookies[:authHeaders]
 

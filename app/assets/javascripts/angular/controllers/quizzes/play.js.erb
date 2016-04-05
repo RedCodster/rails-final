@@ -1,6 +1,13 @@
-app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$routeParams', '$interval',  function($scope, $http, $location, $routeParams, $interval){
+app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$interval',  function($scope, $http, $location, $auth, $routeParams, $interval){
 
   var choices = [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,1,0],[2,0,1]];
+
+  $auth.validateUser().then(function (resp) {
+    console.log(resp);
+    $scope.user = resp;
+  }).catch(function (resp) {
+    console.log(resp);
+  });
 
   $http.get('/quizzes/' + $routeParams.id).success(function(response){
     console.log(response);
@@ -77,7 +84,7 @@ app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$routeParams
     $interval.cancel(timerId);
 
     var url = '/quizzes/' + $routeParams.id +'/results';
-    $http.post(url, { score: $scope.score })
+    $http.post(url, { user_id: $scope.user.id, score: $scope.score })
     .success(function(response){
       console.log(response);
       $scope.playMode = false;
