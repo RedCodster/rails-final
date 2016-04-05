@@ -3,4 +3,10 @@ app.controller('QuizzesIndexCtrl', ['$scope', '$http', '$location', function($sc
     console.log(response);
     $scope.quizzes = response;
   });
+
+  $scope.delete = function (id) {
+    $http.delete('/quizzes/' + id).success(function(response){
+      location = '/#/quizzes'
+    });
+  };
 }]);
