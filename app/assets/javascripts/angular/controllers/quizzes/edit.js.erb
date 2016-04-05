@@ -1,4 +1,6 @@
+
 app.controller('QuizzesEditCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+  var deletedQuestions = [];
 
   $http.get('/quizzes/' + $routeParams.id).success(function(response){
     console.log(response);
@@ -16,22 +18,37 @@ app.controller('QuizzesEditCtrl', ['$scope', '$http', '$routeParams', function($
       questions_attributes: $scope.quiz.questions
     };
 
+    // Restore the deleted questions to the data
+    data.questions_attributes = data.questions_attributes.concat(deletedQuestions)
+
     console.log(data);
 
     $http.put('/quizzes/' + $routeParams.id, data).success(function(response){
+      deletedQuestions = [];
+      // Alternatively, You can choose to redirect to another page if you like.
       location = '/#/quizzes';
-
     });
   };
 
-  $scope.create = function () {
-    $scope.quiz.questions.push($scope.question);
+  $scope.create = function() {
+    $scope.quiz.questions.push({
+      ask: $scope.question.ask,
+      answer: $scope.question.answer,
+      dummy1: $scope.question.dummy1,
+      dummy2: $scope.question.dummy2
+    });
+    $scope.question = {};
   };
 
-  $scope.delete = function (index) {
-    $scope.quiz.questions.splice(index,1);
+  $scope.delete = function(index) {
+    var targetQ = $scope.quiz.questions[index];
+
+    if (targetQ.hasOwnProperty('id')) {
+      targetQ['_destroy'] = 1;  // Need a "truthy" value for Rails
+      deletedQuestions.push(targetQ);
+    }
+
+    // Remove this from the UI
+    $scope.quiz.questions.splice(index, 1);
   }
-
-
-
 }]);

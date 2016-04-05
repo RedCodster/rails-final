@@ -3,5 +3,5 @@ class Quiz < ActiveRecord::Base
   belongs_to :user
 
   # This is required so that we can update the nested Questions data in bulk
-  accepts_nested_attributes_for :questions
+  accepts_nested_attributes_for :questions, allow_destroy: true
 end
