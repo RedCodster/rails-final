@@ -6,7 +6,8 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = current_user.quizzes.new(quiz_params)
+    user = User.find_by(id: params[:user_id])
+    @quiz = user.quizzes.new(quiz_params)
 
     if @quiz.save
       # render success in Jbuilder

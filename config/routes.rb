@@ -15,4 +15,7 @@ Rails.application.routes.draw do
     resources :results, only: [:index]
   end
 
+  resources :users, only: [] do
+    resources :quizzes, only: [:create]
+  end
 end

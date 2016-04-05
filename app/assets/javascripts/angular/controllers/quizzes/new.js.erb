@@ -1,15 +1,59 @@
-app.controller('QuizzesNewCtrl', ['$scope', '$http', function($scope, $http){
 
-  $scope.quiz = {};
-  $scope.form = {};
+app.controller('QuizzesNewCtrl', ['$scope', '$http', '$auth', '$routeParams', function($scope, $http, $auth, $routeParams){
+  var deletedQuestions = [];
 
-  $scope.form.create = function(){
+  // $http.get('/quizzes/' + $routeParams.id).success(function(response){
+  //   console.log(response);
+  //   $scope.quiz = response;
+
+  // });
+
+  $auth.validateUser().then(function (resp) {
+    console.log(resp);
+    $scope.user = resp;
+  }).catch(function (resp) {
+    console.log(resp);
+  });
+
+  $scope.quiz = {
+    name: '',
+    description: '',
+    questions: []
+  };
+
+  $scope.create = function() {
+    // I added ng-model in edit.html to bind the description field.
+
+    // Need to rename the 'questions' attribute to 'questions_attributes' to follow Rails convention
     var data = {
-      post: $scope.quiz
+      name: $scope.quiz.name,
+      description: $scope.quiz.description,
+      questions_attributes: $scope.quiz.questions
     };
 
-    $http.post('/quizzes', data).success(function(response){
-      console.log(response);
+    // Restore the deleted questions to the data
+    data.questions_attributes = data.questions_attributes.concat(deletedQuestions)
+
+    console.log(data);
+
+    $http.post('/users/' + $scope.user.id + '/quizzes', data).success(function(response){
+      deletedQuestions = [];
+      // Alternatively, You can choose to redirect to another page if you like.
+      location = '/#/quizzes';
     });
   };
+
+  $scope.createq = function() {
+    $scope.quiz.questions.push({
+      ask: $scope.question.ask,
+      answer: $scope.question.answer,
+      dummy1: $scope.question.dummy1,
+      dummy2: $scope.question.dummy2
+    });
+    $scope.question = {};
+  };
+
+  $scope.delete = function(index) {
+    $scope.quiz.questions.splice(index, 1);
+  }
 }]);
