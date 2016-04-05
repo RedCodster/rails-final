@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   end
   root 'static_pages#index'
 
-  resources :quizzes
+  resources :quizzes do
+    resources :results, only: [:create]
+  end
+
 end

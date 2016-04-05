@@ -74,9 +74,15 @@ app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$routeParams
   };
 
   function gameOver () {
-    $scope.playMode = false;
-    $scope.gameOver = true;
     $interval.cancel(timerId);
+
+    var url = '/quizzes/' + $routeParams.id +'/results';
+    $http.post(url, { score: $scope.score })
+    .success(function(response){
+      console.log(response);
+      $scope.playMode = false;
+      $scope.gameOver = true;
+    });
   }
 
   $scope.gameReset = function () {

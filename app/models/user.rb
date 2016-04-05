@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :quizzes
+  has_many :results
+  has_many :quizzes, through: :results
 end
