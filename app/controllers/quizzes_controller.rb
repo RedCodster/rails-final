@@ -27,6 +27,7 @@ class QuizzesController < ApplicationController
       # - I have declare all whitelisted parameters for quiz and the nested questions in quiz_params
       #   (See the bottom of this file)
       @quiz.update(quiz_params)
+      @quiz.save!
     end
     # By default, this will using update.jbuilder to render the updated quiz object as json and then return it
   end
@@ -60,6 +61,6 @@ class QuizzesController < ApplicationController
   # Rails requires the convention of <name_of_nested_associations>_attributes so we also need to 
   # modify the JSON data at the Angular side. 
   def quiz_params
-    params.permit(:name, :description, questions_attributes: [:id, :ask, :answer, :dummy1, :dummy2])
+    params.permit(:name, :description, questions_attributes: [:id, :ask, :answer, :dummy1, :dummy2, :_destroy])
   end
 end

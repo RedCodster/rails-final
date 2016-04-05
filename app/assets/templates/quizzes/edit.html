@@ -31,6 +31,7 @@
           <div class='col-md-6'>
             <label>Dummy 2</label>
             <input type="text" value="{{question.dummy2}}" ng-model="question.dummy2">
+            <button ng-click="delete($index)" type="button" class="btn btn-success">Delete Question</button>
           </div>
         </div>
         <div class='col-md-4'>
@@ -44,31 +45,29 @@
         <div class='col-md-12'>
           <h3> Please add any additional questions here:</h3>
           <label>Question</label>
-          <input type="text" class="question" placeholder="Insert question here - don't forget the '?'">
+          <input type="text" class="question" placeholder="Insert question here - don't forget the '?'" ng-model="question.ask">
         </div>
         <div class='col-md-6'>
           <label>Answer</label>
-          <input type="text" class="answer" placeholder="Insert answer here">
+          <input type="text" class="answer" placeholder="Insert answer here" ng-model="question.answer">
         </div>
         <div class='col-md-6'>
           <label>Dummy 1</label>
-          <input type="text" class="dummy1" placeholder="Insert 1st dummy answer here">
+          <input type="text" class="dummy1" placeholder="Insert 1st dummy answer here" ng-model="question.dummy1">
         </div>
         <div class='col-md-6'>
           <label>Dummy 2</label>
-          <input type="text" class="dummy2" placeholder="Insert 2nd dummy answer here">
+          <input type="text" class="dummy2" placeholder="Insert 2nd dummy answer here" ng-model="question.dummy2">
         </div>
         <div class='col-md-6'>
           <label>url</label>
-          <input type="text" class="url" placeholder="Insert link to relevant media (Optional)">
+          <input type="text" class="url" placeholder="Insert link to relevant media (Optional)" ng-model="question.url">
         </div>
         <div class='col-md-4'>
-          <button id="question-create" class="btn btn-warning">Create New Question</button>
+          <button id="question-create" class="btn btn-warning" ng-click="create()">Create New Question</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-<link rel="stylesheet" href="/app/assets/stylesheets/quiz_take.css">
 

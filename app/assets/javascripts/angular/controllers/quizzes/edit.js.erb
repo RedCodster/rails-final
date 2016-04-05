@@ -21,9 +21,17 @@ app.controller('QuizzesEditCtrl', ['$scope', '$http', '$routeParams', function($
     $http.put('/quizzes/' + $routeParams.id, data).success(function(response){
       // Saved. But I am not doing anything interesting currently.
       console.log(response);
-      
+      $scope.quiz = response;
       // Alternatively, You can choose to redirect to another page if you like.
       //location = '/#/quizzes';
     });
   };
+
+  $scope.create = function() {
+    $scope.quiz.questions.push($scope.question);
+  };
+
+  $scope.delete = function(index) {
+    $scope.quiz.questions[index]['_destroy'] = 1;  // Need a "truthy" value for Rails
+  }
 }]);
