@@ -19,11 +19,19 @@ app.controller('QuizzesEditCtrl', ['$scope', '$http', '$routeParams', function($
     console.log(data);
 
     $http.put('/quizzes/' + $routeParams.id, data).success(function(response){
-      // Saved. But I am not doing anything interesting currently.
-      console.log(response);
-      
-      // Alternatively, You can choose to redirect to another page if you like.
-      //location = '/#/quizzes';
+      location = '/#/quizzes';
+
     });
   };
+
+  $scope.create = function () {
+    $scope.quiz.questions.push($scope.question);
+  };
+
+  $scope.delete = function (index) {
+    $scope.quiz.questions.splice(index,1);
+  }
+
+
+
 }]);

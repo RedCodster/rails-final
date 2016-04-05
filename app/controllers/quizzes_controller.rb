@@ -21,7 +21,7 @@ class QuizzesController < ApplicationController
     if @quiz.nil?
       render json: { message: "Cannot find quiz" }, status: :not_found
     else
-      # Update quiz attribures and also ALL questions in bulk
+      # Update quiz attributes and also ALL questions in bulk
       # This works because:
       # - I have added accepts_nested_attributes_for in quiz.rb
       # - I have declare all whitelisted parameters for quiz and the nested questions in quiz_params
@@ -57,8 +57,8 @@ class QuizzesController < ApplicationController
   private
 
   # Using Strong Parameters to define whitelisted attributes.
-  # Rails requires the convention of <name_of_nested_associations>_attributes so we also need to 
-  # modify the JSON data at the Angular side. 
+  # Rails requires the convention of <name_of_nested_associations>_attributes so we also need to
+  # modify the JSON data at the Angular side.
   def quiz_params
     params.permit(:name, :description, questions_attributes: [:id, :ask, :answer, :dummy1, :dummy2])
   end
