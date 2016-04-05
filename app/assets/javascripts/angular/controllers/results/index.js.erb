@@ -1,0 +1,6 @@
+app.controller('ResultsIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+  $http.get('/quizzes').success(function(response){
+    console.log(response);
+    $scope.quizzes = response;
+  });
+}]);

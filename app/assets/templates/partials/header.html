@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav navbar-right">
         <a ng-hide="user.signedIn" href="/#/signup" class="btn btn-lg btn-warning">Sign Up</a>
         <a ng-hide="user.signedIn" href="/#/signin" class="btn btn-lg btn-primary">Sign In</a>
-        <button ng-show="user.signedIn" ng-click="" class="btn btn-lg btn-info">My Details</button>
+        <button ng-show="user.signedIn" href="/#/quizzes/:quiz_id/results" class="btn btn-lg btn-info">My Details</button>
         <button ng-show="user.signedIn" ng-click="logout()" id="signout-btn" class="btn btn-lg btn-danger">Sign Out</button>
       </ul>
     </div>

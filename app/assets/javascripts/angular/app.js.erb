@@ -26,6 +26,10 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
       templateUrl: "<%= asset_path('quizzes/play.html') %>",
       controller: 'QuizzesPlayCtrl'
     }).
+    when('/quizzes/:id/results', {
+      templateUrl: "<%= asset_path('results/index.html') %>",
+      controller: 'ResultsPlayCtrl'
+    }).
     when('/quizzes/:id/edit', {
       templateUrl: "<%= asset_path('quizzes/edit.html') %>",
       controller: 'QuizzesEditCtrl'

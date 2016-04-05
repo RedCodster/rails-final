@@ -1,0 +1,24 @@
+<div class="container">
+  <div ng-repeat="quiz in quizzes track by $index">
+    <table class="table table-default">
+      <thead>
+        <tr>
+          <th>Quiz Name</th>
+          <th>Score</th>
+          <th># of Questions</th>
+          <th>% Correct</th>
+          <th>Date Played</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{quiz.name}}</td>
+          <td>{{quiz.score}}</td>
+          <td>{{quiz.questions.count()}}/td>
+          <td>{{quiz.score/quiz.questions.length|number:1}}</td>
+          <td>{{}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
