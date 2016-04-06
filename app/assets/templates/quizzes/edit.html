@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-      <h2> Please enter new question and press here <button ng-click="create()" class="btn btn-info">Create New Question</button> to add to quiz:</h2>
+      <h2> Please enter new question and press here to <button ng-click="create()" class="btn btn-info">Add New Question</button> to quiz:</h2>
       <form id="question-form" class="container">
         <div class="row">
           <div class='col-xs-2'>
@@ -65,7 +65,7 @@
 
       <hr>
 
-      <h2> Please review questions below then press here <button ng-click="update()" type="button" class="btn btn-success">Update Quiz</button> to update</h2>
+      <h2> Please review questions below then press here to <button ng-click="update()" type="button" class="btn btn-success">Update Quiz</button></h2>
 
       <form id="question-form" class="container">
         <div ng-repeat="question in quiz.questions track by $index">
@@ -107,9 +107,10 @@
               <input type="text" value="{{question.dummy2}}" ng-model="question.dummy2">
             </div>
             <div class='col-xs-4'>
-              <button ng-click="delete($index)" type="button" class="btn btn-danger">Delete Question</button>
+              <button ng-click="delete($index)" type="button" class="btn btn-danger">Delete Question</button></br>
             </div>
           </div>
+          <h5>Question created at: {{quiz.created_at | date}}</h5></br>
         </div>
       </form>
     </div>

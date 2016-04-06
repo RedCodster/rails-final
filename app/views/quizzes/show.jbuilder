@@ -1,6 +1,7 @@
 json.id @quiz.id
 json.name @quiz.name
 json.description @quiz.description
+json.created @quiz.created_at
 json.questions @quiz.questions do |question|
   json.id question.id
   json.ask question.ask

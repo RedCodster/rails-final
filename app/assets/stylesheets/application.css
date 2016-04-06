@@ -69,7 +69,7 @@
 }
 
 h1 {
-  font-family: 'Rock Salt', cursive; font-weight: 400; font-size: 50px;
+  font-family: 'Permanent Marker', cursive; font-weight: 400; font-size: 50px;
 
 }
 
@@ -82,6 +82,13 @@ h1 {
 }
 
 body {
-  font-family: 'Permanent Marker', cursive; font-weight: 500; font-size: 25px;
+  font-family: 'Rock Salt', cursive; font-weight: 500; font-size: 25px;
   background-image: url('https://s3-ap-southeast-1.amazonaws.com/qm3/background.jpg');
 }
+
+.navbar-default {
+  margin-bottom:0;
+}
+
+ /*https://s3-ap-southeast-1.amazonaws.com/qm3/The-Fountain.jpg*/
+ /*https://s3-ap-southeast-1.amazonaws.com/qm3/background.jpg*/
