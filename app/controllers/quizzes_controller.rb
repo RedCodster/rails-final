@@ -62,6 +62,6 @@ class QuizzesController < ApplicationController
   # Rails requires the convention of <name_of_nested_associations>_attributes so we also need to
   # modify the JSON data at the Angular side.
   def quiz_params
-    params.permit(:name, :description, questions_attributes: [:id, :ask, :answer, :dummy1, :dummy2, :_destroy])
+    params.permit(:name, :description, questions_attributes: [:id, :ask, :answer, :dummy1, :dummy2, :url, :_destroy])
   end
 end

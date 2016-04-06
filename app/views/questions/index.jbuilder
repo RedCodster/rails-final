@@ -4,4 +4,5 @@ json.array! @questions do |question|
   json.answer @question.answer
   json.dummy1 @question.dummy1
   json.dummy2 @question.dummy2
+  json.url    @question.url
 end

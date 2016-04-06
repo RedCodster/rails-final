@@ -24,8 +24,9 @@ app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$ro
   var timerId;
   var countDownOneSecond =  function () {
     $scope.timer--;
-    if ($scope.timer == 0)
+    if ($scope.timer == 0) {
       gameOver();
+    }
   };
 
   $scope.startCount = function () {
@@ -87,6 +88,7 @@ app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$ro
 
   function gameOver () {
     $interval.cancel(timerId);
+    chkStatus();
 
     var url = '/quizzes/' + $routeParams.id +'/results';
     $http.post(url, { user_id: $scope.user.id, score: $scope.score })
@@ -96,6 +98,26 @@ app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$ro
       $scope.gameOver = true;
     });
   }
+
+  function chkStatus () {
+    var pctTot = $scope.score / $scope.numQuestions;
+    if (pctTot < 0.2) {
+        $scope.playerStat = "Dohh!";
+        $scope.status_url = "https://s3-ap-southeast-1.amazonaws.com/qm3/Status/dohh.gif";
+    } else if (pctTot >= 0.2 && pctTot < 0.5) {
+        $scope.playerStat = "Slacker";
+        $scope.status_url = "https://s3-ap-southeast-1.amazonaws.com/qm3/Status/slacker.gif";
+    } else if (pctTot  >= 0.5 && pctTot < 0.7) {
+        $scope.playerStat = "Average Joe";
+        $scope.status_url = "https://s3-ap-southeast-1.amazonaws.com/qm3/Status/averagejoe.gif";
+    } else if (pctTot >= 0.7 && pctTot < 0.9) {
+        $scope.playerStat = "Egg Head";
+        $scope.status_url = "https://s3-ap-southeast-1.amazonaws.com/qm3/Status/egghead.gif";
+    } else {
+        $scope.playerStat = "Rock Star";
+        $scope.status_url = "https://s3-ap-southeast-1.amazonaws.com/qm3/Status/rockstar.gif";
+    }
+  };
 
   $scope.gameReset = function () {
     $scope.startMode = true;

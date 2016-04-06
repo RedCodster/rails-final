@@ -13,12 +13,12 @@
 
   <div id="game" ng-show="playMode" class="container">
     <div id="category" class="row">
-      <h1 class="col-md-12">{{quiz.name}}</h1>
+      <h1 class="col-md-12">You are taking the {{quiz.name}} quiz</h1>
     </div>
     <div class="row">
       <section class="ans-choices col-md-6">
         <p>Question {{currentQId + 1}}</p>
-        <h3>{{currentQ.ask}}</h3>
+        <h3>{{currentQ.ask}}</h3></br>
         <p>Please Choose Answer</p>
           <div class="list-group col-md-10">
             <button type="button" id="pick1" class="list-group-item answers" ng-click="chkAnswer(choices[0])">{{choices[0]}}</button>
@@ -30,12 +30,11 @@
           <div class= "timer col-md-5">
             <label>Timer <span id="timeLeft">{{timer}}</span></label>
           </div>
-          <div class="score col-md-5 col-md-offset-2">
+          <div class="score col-md-5 col-md-offset-1">
             <label>Correct Answers<span id="scoreTot"> {{score}}</span></label>
           </div>
       </section>
       <section class="graphic col-md-5 col-md-offset-1">
-        <h3>Related Graphic</h3>
         <img id="qpic" src="{{currentQ.url}}" class="img-responsive">
       </section>
     </div>
@@ -53,16 +52,13 @@
             <li class="list-group-item list-group-item">Questions Skipped: <span class="pull-right">{{numQuestions-tried}}</span></li>
             <li class="list-group-item list-group-item">Questions Tried: <span class="pull-right">{{tried}}</span></li>
             <li class="list-group-item list-group-item">Answered Correctly :<span class="pull-right">{{score}}</span></li>
-            <li class="list-group-item list-group-item">% Correct of Tried: <span class="pull-right">{{(score/tried*100)|number:1}}</span></li>
             <li class="list-group-item list-group-item">% Correct of Total: <span class="pull-right">{{score/numQuestions*100|number:1}}</span></li>
           </div>
       </section>
-      <section class="player-status col-md-5 col-md-offset-1">
-        <h3>Player Status</h3>
+      <section class="player-status col-md-5">
+        <h3>Player Status: {{playerStat}}</h3>
           <div class="list-group col-md-12">
-            <li class="list-group-item list-group-item-success">Your % Correct of Total:<span class="pctTot pull-right">{{score/numQuestions*100|number:1}}</span></li>
-            <li class="list-group-item list-group-item-danger">Earned you status of<span id="chkStat" class="pull-right"></span></li>
-            <img id="statPic" src="/public/photos/" class="img-responsive">
+            <img id="statPic" src="{{status_url}}" class="img-responsive">
           </div>
       </section>
     </div>

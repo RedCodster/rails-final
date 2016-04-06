@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def get_current_user
-    puts ">> [get_current_user] [#{cookies[:authHeaders]}]"
     return nil unless cookies[:authHeaders]
     auth_headers = JSON.parse cookies[:authHeaders]
 
