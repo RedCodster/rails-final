@@ -4,72 +4,114 @@
 
     <div id="make">
       <div class="container quiz-details">
-        <div class="question col-xs-9">
+        <div class="row">
+        <div class="question col-xs-2">
           <label>Quiz Name</label>
-          <input type="text" value="{{quiz.name}}" ng-model="quiz.name">
         </div>
-        <div class="question col-xs-9">
-          <label>Quiz Description</label>
-          <input type="text" value="{{quiz.description}}" ng-model="quiz.description">
+        <div class="col-xs-10">
+          <input type="text" ng-model="quiz.name" placeholder="Insert quiz name here">
         </div>
       </div>
-      <form id="question-form" class="container">
-        <h3> Please review your questions:</h3>
-        <div ng-repeat="question in quiz.questions track by $index">
-          <div class='col-md-12'>
-            <label>Question</label>
-            <input type="text" value="{{question.ask}}" ng-model="question.ask">
-          </div>
-          <div class='col-md-6'>
-            <label>Answer</label>
-            <input type="text" value="{{question.answer}}" ng-model="question.answer">
-          </div>
-          <div class='col-md-6'>
-            <label>Dummy 1</label>
-            <input type="text" value="{{question.dummy1}}" ng-model="question.dummy1">
-          </div>
-          <div class='col-md-6'>
-            <label>Dummy 2</label>
-            <input type="text" value="{{question.dummy2}}" ng-model="question.dummy2">
-          </div>
-          <div class='col-md-6'>
-            <label>Url</label>
-            <input type="text" value="{{question.url}}" ng-model="question.url">
-          </div>
-          <button ng-click="delete($index)" type="button" class="btn btn-danger">Delete Question</button>
+      <div class="row">
+        <div class="question col-xs-2">
+          <label>Quiz Topic</label>
         </div>
-        <div class='col-md-4'>
-          <button ng-click="update()" type="button" class="btn btn-success">Update Quiz</button>
+        <div class="col-xs-10">
+          <input type="text" ng-model="quiz.description" placeholder="Insert quiz topic here">
+        </div>
+      </div>
+    </div>
+      <h2> Please enter new question and press here <button ng-click="create()" class="btn btn-info">Create New Question</button> to add to quiz:</h2>
+      <form id="question-form" class="container">
+        <div class="row">
+          <div class='col-xs-2'>
+            <label>Question</label>
+          </div>
+          <div class='col-xs-10'>
+            <input type="text" class="question" placeholder="Type question here - don't forget the '?'" ng-model="question.ask">
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-xs-2'>
+            <label>Image URl</label>
+          </div>
+          <div class='col-xs-10'>
+            <input type="text" class="question" placeholder="Insert link for question-related media here" ng-model="question.url">
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-xs-2'>
+            <label>Answer</label>
+          </div>
+          <div class='col-xs-4'>
+            <input type="text" class="answer" placeholder="Insert answer here" ng-model="question.answer">
+          </div>
+          <div class='col-xs-2'>
+            <label>Dummy 1</label>
+          </div>
+          <div class='col-xs-4'>
+            <input type="text" class="dummy1" placeholder="Insert 1st dummy here" ng-model="question.dummy1">
+          </div>
+        </div>
+        <div class="row">
+          <div class='col-xs-2'>
+            <label>Dummy 2</label>
+          </div>
+          <div class='col-xs-4'>
+            <input type="text" class="answer" placeholder="Insert 2nd dummy here" ng-model="question.dummy2">
+          </div>
         </div>
       </form>
 
+      <hr>
 
+      <h2> Please review questions below then press here <button ng-click="update()" type="button" class="btn btn-success">Update Quiz</button> to update</h2>
 
       <form id="question-form" class="container">
-        <div class='col-md-12'>
-          <h3> Please add any additional questions here:</h3>
-          <label>Question</label>
-          <input type="text" class="question" placeholder="Insert question here - don't forget the '?'" ng-model="question.ask">
+        <div ng-repeat="question in quiz.questions track by $index">
+          <div class="row">
+            <div class='col-xs-2'>
+              <label>Question</label>
+            </div>
+            <div class='col-xs-10'>
+              <input type="text" value="{{question.ask}}" ng-model="question.ask">
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-xs-2'>
+              <label>Image URl</label>
+            </div>
+            <div class='col-xs-10'>
+              <input type="text" value="{{question.url}}" ng-model="question.url">
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-xs-2'>
+              <label>Answer</label>
+            </div>
+            <div class='col-xs-4'>
+              <input type="text" value="{{question.answer}}" ng-model="question.answer">
+            </div>
+            <div class='col-xs-2'>
+              <label>Dummy 1</label>
+            </div>
+            <div class='col-xs-4'>
+              <input type="text" value="{{question.dummy1}}" ng-model="question.dummy1">
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-xs-2'>
+              <label>Dummy 2</label>
+            </div>
+            <div class='col-xs-4'>
+              <input type="text" value="{{question.dummy2}}" ng-model="question.dummy2">
+            </div>
+            <div class='col-xs-4'>
+              <button ng-click="delete($index)" type="button" class="btn btn-danger">Delete Question</button>
+            </div>
+          </div>
         </div>
-        <div class='col-md-6'>
-          <label>Answer</label>
-          <input type="text" class="answer" placeholder="Insert answer here" ng-model="question.answer">
-        </div>
-        <div class='col-md-6'>
-          <label>Dummy 1</label>
-          <input type="text" class="dummy1" placeholder="Insert 1st dummy answer here" ng-model="question.dummy1">
-        </div>
-        <div class='col-md-6'>
-          <label>Dummy 2</label>
-          <input type="text" class="dummy2" placeholder="Insert 2nd dummy dummy1 here" ng-model="question.dummy2">
-        </div>
-        <div class='col-md-6'>
-          <label>url</label>
-          <input type="text" class="url" placeholder="Insert link to relevant media (Optional)" ng-model="question.url">
-        </div>
-        <div class='col-md-4'>
-          <button ng-click="create()" class="btn btn-warning">Create New Question</button>
-        </div>
+        <hr><hr><hr>
       </form>
     </div>
   </div>

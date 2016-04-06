@@ -1,3 +1,15 @@
+/*@font-face {
+  font-family: 'RockSalt';
+  src:url('RockSalt.ttf');
+  src:asset-url('/assets/RockSalt.ttf?#iefix') format('embedded-opentype'),
+      asset-url('/assets/RockSalt.ttf#RockSalt') format('ttf'),
+      asset-url('/assets/RockSalt.ttf') format('ttf'),
+      asset-url('/assets/RockSalt.ttf') format('truetype');
+}*/
+
+#railsFinal {
+  font-family: 'Permanent Marker', cursive;
+}
 
 #category {
   height: 100px;

@@ -2,20 +2,28 @@
   <div class="row">
     <h1>Create A New Quiz</h1>
     <div class="container quiz-details">
-      <div class="question col-xs-6">
-        <label>Quiz Name</label>
-        <input type="text" ng-model="quiz.name" placeholder="Insert quiz name here">
+      <div class="row">
+        <div class="question col-xs-2">
+          <label>Quiz Name</label>
+        </div>
+        <div class="col-xs-10">
+          <input type="text" ng-model="quiz.name" placeholder="Insert quiz name here">
+        </div>
       </div>
-      <div class="question col-xs-6">
-        <label>Quiz Topic</label>
-        <input type="text" ng-model="quiz.description" placeholder="Insert quiz topic here">
+      <div class="row">
+        <div class="question col-xs-2">
+          <label>Quiz Topic</label>
+        </div>
+        <div class="col-xs-10">
+          <input type="text" ng-model="quiz.description" placeholder="Insert quiz topic here">
+        </div>
       </div>
       <div class='col-md-4'>
         <button ng-click="create()" type="button" class="btn btn-success">Create New Quiz</button>
       </div>
     </div>
     <form id="question-form" class="container">
-      <h3> Please review your questions:</h3>
+      <h3> Please review your questions below:</h3>
       <div ng-repeat="question in quiz.questions track by $index">
         <div class='col-md-12'>
           <label>Question</label>
@@ -40,9 +48,11 @@
         <button ng-click="delete($index)" type="button" class="btn btn-danger">Delete Question</button>
       </div>
     </form>
+
+
     <form id="question-form" class="container">
+      <h3> Please add new question here:</h3>
       <div class='col-md-12'>
-        <h3> Please add any additional questions here:</h3>
         <label>Question</label>
         <input type="text" class="question" placeholder="Insert question here - don't forget the '?'" ng-model="question.ask">
       </div>
