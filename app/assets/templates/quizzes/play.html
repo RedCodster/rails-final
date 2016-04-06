@@ -2,12 +2,13 @@
 <div ng-app='rails-final' class='container row col-md-12 col-sm-6'>
   <div class="container" ng-show="startMode">
     <h1>Quiz Taker</h1>
-    <h2>About {{quiz.name}}: {{quiz.description}}</h2>
-    <h3>Number of questions: {{numQuestions}}</h3>
+    <h3>About {{quiz.name}}: </h3>
+    <h3>{{quiz.description}}</h3></br>
+    <h3>Number of questions: {{numQuestions}}</h3></br>
     <h3>Alloted Time: {{numQuestions * 5}} seconds</h3>
 
 
-    <input id="start-button" type="submit" ng-click="startQuiz()" class="col-md-12">
+    <button id="start-button" ng-click="startQuiz()" class="col-md-12">Start Quiz</button>
   </div>
 
   <div id="game" ng-show="playMode" class="container">
@@ -16,14 +17,14 @@
     </div>
     <div class="row">
       <section class="ans-choices col-md-6">
-        <h3>Question {{currentQId + 1}}</h3>
-        <p>{{currentQ.ask}}</p>
-        <h3>Please Choose Answer</h3>
+        <p>Question {{currentQId + 1}}</p>
+        <h3>{{currentQ.ask}}</h3>
+        <p>Please Choose Answer</p>
           <div class="list-group col-md-10">
             <button type="button" id="pick1" class="list-group-item answers" ng-click="chkAnswer(choices[0])">{{choices[0]}}</button>
             <button type="button" id="pick2" class="list-group-item answers" ng-click="chkAnswer(choices[1])">{{choices[1]}}</button>
             <button type="button" id="pick3" class="list-group-item answers" ng-click="chkAnswer(choices[2])">{{choices[2]}}</button>
-            <button type="button" id="skip" class="list-group-item" ng-click="skipQuestion()">Skip to Next Question</button>
+            <button type="button" id="skip" class="list-group-item" ng-click="skipQuestion()" ng-audio="Disappointed.mp3">Skip to Next Question</button>
           </div>
         <div class="row">
           <div class= "timer col-md-5">

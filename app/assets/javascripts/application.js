@@ -14,6 +14,7 @@
 //= require angular-route/angular-route
 //= require angular-cookie/angular-cookie
 //= require ng-token-auth/dist/ng-token-auth
+//= require angular-audio/app/angular.audio
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/dist/js/bootstrap

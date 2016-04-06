@@ -1,6 +1,8 @@
-app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$interval',  function($scope, $http, $location, $auth, $routeParams, $interval){
+app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$interval', 'ngAudio', function($scope, $http, $location, $auth, $routeParams, $interval, ngAudio){
 
   var choices = [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,1,0],[2,0,1]];
+  var cheering = ngAudio.load("Cheering.mp3");
+  var disappointed = ngAudio.load("Disappointed.mp3");
 
   $auth.validateUser().then(function (resp) {
     console.log(resp);
@@ -56,6 +58,9 @@ app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$ro
     $scope.tried ++;
     if (choice == answer) {
       $scope.score ++;
+      cheering.play();
+    } else {
+      disappointed.play();
     }
     $scope.currentQId ++;
     if ($scope.currentQId < $scope.numQuestions) {
@@ -96,6 +101,7 @@ app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$location', '$auth', '$ro
     $scope.startMode = true;
     $scope.playMode = false;
     $scope.gameOver = false;
+    $scope.timer = $scope.numQuestions * 5;
   };
 
 

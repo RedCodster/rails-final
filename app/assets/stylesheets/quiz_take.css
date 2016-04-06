@@ -1,11 +1,3 @@
-/*@font-face {
-  font-family: 'RockSalt';
-  src:url('RockSalt.ttf');
-  src:asset-url('/assets/RockSalt.ttf?#iefix') format('embedded-opentype'),
-      asset-url('/assets/RockSalt.ttf#RockSalt') format('ttf'),
-      asset-url('/assets/RockSalt.ttf') format('ttf'),
-      asset-url('/assets/RockSalt.ttf') format('truetype');
-}*/
 
 #railsFinal {
   font-family: 'Permanent Marker', cursive;
@@ -27,7 +19,7 @@
   border-radius: 5px;
   padding: 10px 0px 0px 25px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
 
 }
 
@@ -53,23 +45,11 @@
   margin: 50px 0px 50px 0px;
   font-weight: bold;
   height: 60px;
-  width: 100%;
+  width: 33%;
   color: white;
   font-size: 40px;
   text-align: center;
   background-color: limegreen;
-}
-
-#answer-button {
-  font-style: bold;
-  border-radius: 5px;
-  margin: 10px 0px 10px 0px;
-  font-weight: bold;
-  height: 60px;
-  width: 100%;
-  color: white;
-  font-size: 40px;
-  background-color: blue;
 }
 
 #gameover {
@@ -111,7 +91,7 @@
   margin: 10px 0px 10px 0px;
   font-weight: bold;
   height: 60px;
-  width: 100%;
+  width: 50%;
   color: white;
   font-size: 40px;
 }
@@ -123,7 +103,7 @@
   margin: 10px 0px 10px 0px;
   font-weight: bold;
   height: 60px;
-  width: 100%;
+  width: 50%;
   color: white;
   font-size: 40px;
 }
