@@ -82,7 +82,13 @@
 }
 
 h1 {
-  font-family: 'Permanent Marker', cursive; font-weight: 400; font-size: 60px;
+  font-family: 'Permanent Marker', cursive; font-weight: 400; font-size: 80px;
+
+}
+
+h2 {
+  font-family: 'Permanent Marker', cursive; font-weight: 400; font-size: 70px;
+  text-align: center;
 
 }
 
