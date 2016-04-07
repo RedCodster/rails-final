@@ -1,4 +1,4 @@
-app.controller('QuizzesPlayCtrl', ['$scope', '$http', '$auth', '$routeParams', '$interval', 'ngAudio', function($scope, $http, $auth, $routeParams, $interval, ngAudio){
+app.controller('QuizzesPlayCtrl', ['$http', '$scope', '$auth', '$routeParams', '$interval', 'ngAudio', function($http, $scope, $auth, $routeParams, $interval, ngAudio){
 
   var choices = [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,1,0],[2,0,1]];
   var cheering = ngAudio.load("Cheering.mp3");
