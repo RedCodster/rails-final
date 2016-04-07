@@ -39,6 +39,10 @@
   object-position: center;
 }
 
+#qpic {
+  width: 450px;
+}
+
 #start-button {
   font-style: bold;
   border-radius: 5px;
@@ -108,3 +112,6 @@
   font-size: 40px;
 }
 
+.ans-choices .list-group button {
+  margin-top: 5px;
+}
