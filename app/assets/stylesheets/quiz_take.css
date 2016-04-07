@@ -33,7 +33,7 @@
   height: 400px;
   width: 350px;
   margin: 0 auto;
-  max-height: 90%;
+  max-height: 100%;
   max-width: 100%;
   object-fit: cover;
   object-position: center;
@@ -61,7 +61,7 @@
 }
 
 .score-summary {
-  height: 420px;
+  height: 350px;
   padding: 10px 0px 0px 25px;
   font-weight: bold;
   font-size: 18px;
@@ -72,10 +72,10 @@
 /*  background-color: aliceblue;
   border: 2px solid black;
   border-radius: 5px;*/
-  padding: 10px 0px 0px 25px;
+  padding: 10px 0px 0px 5px;
   font-weight: bold;
   font-size: 18px;
-  height: 420px;
+  height: 350px;
   width: 450px;
   margin: 0 auto;
   max-height: 85%;
@@ -89,10 +89,9 @@
   background-color: lightgreen;
   font-style: bold;
   border-radius: 5px;
-  margin: 10px 0px 10px 0px;
   font-weight: bold;
   height: 60px;
-  width: 50%;
+  width: 40%;
   color: white;
   font-size: 40px;
 }
@@ -101,10 +100,10 @@
   background-color: mauve;
   font-style: bold;
   border-radius: 5px;
-  margin: 10px 0px 10px 0px;
+  margin-left: 115px;
   font-weight: bold;
   height: 60px;
-  width: 50%;
+  width: 40%;
   color: white;
   font-size: 40px;
 }
