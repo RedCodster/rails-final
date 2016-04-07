@@ -1,12 +1,12 @@
-app.controller('QuizzesIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('QuizzesIndexCtrl', ['$scope', '$http', function($scope, $http){
   $http.get('/quizzes').success(function(response){
     console.log(response);
     $scope.quizzes = response;
   });
 
-  $scope.delete = function (id) {
-    $http.delete('/quizzes/' + id).success(function(response){
-      location = '/#/quizzes'
+  $scope.delete = function(index) {
+    $http.delete('/quizzes/' + $scope.quizzes[index].id).success(function(response){
+      $scope.quizzes.splice(index, 1);
     });
   };
 }]);

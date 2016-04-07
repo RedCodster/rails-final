@@ -48,6 +48,7 @@ class QuizzesController < ApplicationController
     if @quiz.nil?
       render json: { message: "Cannot find quiz" }, status: :not_found
     else
+      Result.destroy_all(quiz: @quiz)
       if @quiz.destroy
         render json: { message: "Successfully deleted" }, status: :no_content
       else
