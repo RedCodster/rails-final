@@ -89,6 +89,15 @@
 
 }
 
+.player-status > .list-group {
+  height: calc(100% - 56px);
+  margin: 0;
+}
+
+#statPic {
+  max-height: 100%;
+}
+
 #restart-button {
   background-color: lightgreen;
   font-style: bold;
